@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+<div>
+  <center><h1>Pet Shop Inventory System</h1></center>
+</div>
+<br><br>
+
+<center><table>
+  <thead>
+    <tr>
+      <th><center>Species</center></th>
+      <th><center>Breed</center></th>
+      <th><center>Price</center></th>
+      <th><center>Status<center></th>
+      <th colspan="1"></th>
+    </tr>
+  </thead></center>
+
+  <tbody>
+    <% @animal.each_with_index do |animal, i| %>
+      <tr>
+        <td><%= (i+1) %></td>
+        <td><center><%= animal.Species %></center></td>
+        <td><%= animal.Breed %></td>
+        <td><%= animal.Price %></td>
+        <td><%= animal.Status %></td>
+        <% if animal.Status == 'For Sale' %>
+          <td><%= link_to 'Sold', animal_change_status_sold_path(animal)%></td>
+        <% else %>
+          <td><%= link_to 'For Sale', animal_change_status_sale_path(animal)%></td>
+        <%end%>
+        <td><%= link_to 'Show', animal%></td>
+        <td><%= link_to 'Edit', edit_animal_path(animal) %></td> 
+        <td><%= link_to 'Delete', animal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<td><%= link_to 'Add Animal', new_animal_path %></td> |
+<td><%= link_to 'Inventory', show_inventory_path%></td>

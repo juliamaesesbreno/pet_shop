@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+<div>
+  <center><h1>Pet Shop Inventory</h1></center>
+</div>
+<br>
+<center>
+<strong>SPECIES</strong>
+
+<% @animals_dog.each do |species, animals| %>
+  <br><%= species %>
+	<% end %>
+
+<% @animals_cat.each do |species, animals| %>
+  <br><%= species %>
+	<% end %>
+
+<br>
+<br><td><%= link_to 'Species', show_species_path%></td> |
+<td><%= link_to 'Breed', show_breed_path%></td> |
+<td><%= link_to 'Status', show_status_path%></td> |
+<td><%= link_to 'Back', animals_path%></td> 
+</center>
