@@ -38,5 +38,9 @@
 </table>
 
 <br>
+ <%= form_tag(animals_path, method: :get) do %>
+ <%= text_field_tag :animal, params[:animal] %>
+ <%= submit_tag 'Search', Species: nil, Breed: nil, Status: nil, Price: nil%>
+<br><% end %>
 <td><%= link_to 'Add Animal', new_animal_path %></td> |
 <td><%= link_to 'Inventory', show_inventory_path%></td>

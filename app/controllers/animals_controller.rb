@@ -3,7 +3,12 @@ class AnimalsController < ApplicationController
   # GET /animals
   # GET /animals.json
   def index
-    @animal = Animal.all
+    #@animal = Animal.all
+    #try filter!!!
+    @animal = Animal.where(nil)
+    @animal = @animal.species(params[species]) if params[:species].present?
+    @animal = @animal.breed(params[breed]) if params[:breed].present?
+    @animal = @animal.status(params[status]) if params[:status].present?
   end
 
   # GET /animals/1
@@ -86,8 +91,19 @@ class AnimalsController < ApplicationController
   def species
   end
 
+  #try filter
+  def search
+  @animals = Animal.search params[:search]
+  end
+
   def total_amount_sale
     @animal = Animal.sum(&:Price)
+  end
+
+  def index
+  @animal = Animal.all
+  @animal = Animal.search(params[:animal])
+  #@animal = Animal.search(params[:animal])
   end
 
   # DELETE /animals/1
