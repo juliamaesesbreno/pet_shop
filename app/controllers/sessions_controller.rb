@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       log_in user
       redirect_to animal# Log the user in and redirect to the user's show page.
     else
-      flash.now[:danger] = 'Invalid email/password combination' # Not quite right!
+      flash.now[:danger] = 'Invalid email/password combination' 
       render 'new'
     end
   end
