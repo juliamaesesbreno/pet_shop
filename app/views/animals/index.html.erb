@@ -17,17 +17,16 @@
       <th colspan="1"></th>
     </tr>
   </thead>
-<%= form_tag(animals_path, method: :get) do %>
-<%= text_field_tag :animal, params[:animal] %>
-<%= submit_tag 'Search', Species: nil, Breed: nil, Status: nil, Price: nil%>
-<br><% end %>
-  
-  </center>
-  <tbody>
-    <% @animal.each_with_index do |animal, i| %>
-      <tr>
-
-        <td><%= (i+1) %></td>
+<%= form_tag('/', method: 'get') do %>
+  <%= text_field_tag 'query' %>
+  <%= radio_button_tag 'field', 'Species' %> Species
+  <%= radio_button_tag 'field', 'Breed' %> Breed
+  <%= radio_button_tag 'field', 'Price' %> Price
+  <%= radio_button_tag 'field', 'Status' %> Status
+  <%= submit_tag 'Submit' %>
+<% end %>
+<% @animal.each do |animal| %>
+<br>
         <td><center><%= animal.Species %></center></td>
         <td><%= animal.Breed %></td>
         <td><%= animal.Price %></td>

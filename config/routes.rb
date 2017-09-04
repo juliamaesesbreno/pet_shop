@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
+  root 'animals#filter'
   resources :users
     get 'show_inventory' => 'animals#show_inventory'
     get 'show_species' => 'animals#show_species'
