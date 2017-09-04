@@ -1,13 +1,15 @@
-<%= form_tag('/', method: 'get') do %>
+<%= form_tag('/', method: 'get') do %><center><br>
   <%= text_field_tag 'query' %>
   <%= radio_button_tag 'field', 'species' %> Species
   <%= radio_button_tag 'field', 'breed' %> Breed
   <%= radio_button_tag 'field', 'price' %> Price
   <%= radio_button_tag 'field', 'status' %> Status
-
   <%= submit_tag 'Filter' %>
+  </center>
+
+  
 <% end %>
-<% @animal.each do |animal| %>
+<% @animal.each do |animal| %><br>
   <div>
     Species: <%= animal.Species%>
   </div>
@@ -21,3 +23,6 @@
     Status: <%= animal.Status %>
   </div>
 <% end %>
+
+<br>
+<td><%= link_to 'Back', animals_path %></td> 

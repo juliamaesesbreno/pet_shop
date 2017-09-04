@@ -17,6 +17,7 @@ class UsersController < ApplicationController
       # Handle a successful save.
     else
       render 'new'
+       redirect_to animals_path  
     end
   end
 

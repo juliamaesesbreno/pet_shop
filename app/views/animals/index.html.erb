@@ -3,7 +3,6 @@
 <div>
   <center><h1>Pet Shop Inventory System</h1></center>
 </div>
-<br><br>
 
 <b><td><%= link_to "Log in", login_path %></td> | <td><%= link_to "Sign Up", signup_path %></td></b>
 
@@ -24,9 +23,9 @@
   <%= radio_button_tag 'field', 'Price' %> Price
   <%= radio_button_tag 'field', 'Status' %> Status
   <%= submit_tag 'Submit' %>
+
 <% end %>
 <% @animal.each do |animal| %>
-<br>
         <td><center><%= animal.Species %></center></td>
         <td><%= animal.Breed %></td>
         <td><%= animal.Price %></td>
