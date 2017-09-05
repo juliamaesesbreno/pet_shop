@@ -3,7 +3,7 @@ class AnimalsController < ApplicationController
   # GET /animals
   # GET /animals.json
   def index
-    @animal = Animal.all
+    #@animal = Animal.all
     #try filter!!!
     @animal = Animal.where(nil)
     @animal = @animal.species(params[species]) if params[:species].present?

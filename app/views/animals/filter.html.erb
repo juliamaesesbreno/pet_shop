@@ -2,8 +2,6 @@
   <center><h1>Pet Shop Inventory System</h1></center>
 </div>
 
-<b><td><%= link_to "Log in", login_path %></td> | <td><%= link_to "Sign Up", signup_path %></td></b>
-
 <center><table>
   <thead>
     <tr>
@@ -41,6 +39,7 @@
 </table>
 
 <br>
-<td><%= link_to 'Add Animal', new_animal_path %></td> |
+<b><td><%= link_to 'Add Animal', new_animal_path %></td> |
 <td><%= link_to 'Inventory', show_inventory_path%></td> |
-<td><%= link_to 'Home', animals_path%></td>
+<td><%= link_to 'Home', animals_path%></td> |
+<td><%= link_to "Log out", login_path %></td></b>
