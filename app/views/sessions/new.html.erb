@@ -1,4 +1,8 @@
+<h2 style="background-color:#808080;color:#808080">
+hahahaha
+</h2>
 <center><h1>Log In</h1></center>
+<table align="center">
 <%= form_tag sessions_path do %>
   <center><div class="field">
     <%= label_tag 'Email:' %><br />
@@ -8,6 +12,6 @@
     <%= label_tag 'Password:' %><br />
     <%= password_field_tag :password %>
   </div></center>
-  <center><div class="actions"><%= submit_tag "Log In" %></div></center>
+  <center><button><%= link_to 'Log in', animals_path%></button></center>
 <% end %>
 <br><center><%= link_to 'New Account? Sign Up', signup_path %></center>

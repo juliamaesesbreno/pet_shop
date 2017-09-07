@@ -1,8 +1,12 @@
+<h2 style="background-color:#808080;color:#808080">
+Welcome to Petshop!
+</h2>
+<h3></h3>
 <center><h1>Sign Up</h1></center>
 <%= form_for @user do |f| %>
   <% if @user.errors.any? %>
     <div class="error_messages">
-      <h2>Incorrect Password</h2>
+      <h2>Invalid Input</h2>
       <ul>
         <% @user.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -22,5 +26,6 @@
     <%= f.label 'Password Confirmation:' %><br />
     <%= f.password_field :password_confirmation %>
   </div></center>
-  <center><div class="actions"><%= f.submit "Sign Up" %></div></center>
+  <center><button><%= link_to 'Sign Up', login_path%></button></center>
 <% end %>
+<style> 

@@ -1,44 +1,44 @@
-<p id="notice"><%= notice %></p>
-<div>
-  <center><h1>Pet Shop Inventory</h1></center>
-</div>
+<h2 style="background-color:#808080;color:white">
+<center>Pet Shop Inventory System</center>
+</h2>
 <br>
 <table>
   <thead>
+  <table align="center">
     <tr>
-      <center><th>Species</th></center>
+      <th>Species</th>
       <th>Breed</th>
       <th>Price</th>
       <th>Status</th>
       <th><colspan="3"></th>
     </tr>
   </thead>
-<center><%= form_tag('/', method: 'get') do %>
+  <center><%= form_tag('/', method: 'get') do %>
   <%= text_field_tag 'query' %>
-  <%= submit_tag 'Filter' %>
-  <br><%= radio_button_tag 'field', 'Species' %> Species
-  <%= radio_button_tag 'field', 'Breed' %> Breed
-  <%= radio_button_tag 'field', 'Price' %> Price
-  <%= radio_button_tag 'field', 'Status' %> Status</center>
-<% end %><center>
+  <%= submit_tag 'Filter' %><br>
+  <br><%= radio_button_tag 'field', 'species' %> Species
+  <%= radio_button_tag 'field', 'breed' %> Breed
+  <%= radio_button_tag 'field', 'price' %> Price
+  <%= radio_button_tag 'field', 'status' %> Status</center>
+<% end %>
 <% @animal.each do |animal| %>
-        <center><td><%= animal.Species %></td></center>
-        <center><td><%= animal.Breed %></td></center>
-       <center> <td><%= animal.Price %></td></center>
-        <center><td><%= animal.Status %></td></center>
+        <td><%= animal.Species %></td>
+        <td><%= animal.Breed %></td>
+        <td><%= animal.Price %></td>
+        <td><%= animal.Status %></td>
         <% if animal.Status == 'For Sale' %>
           <td><button><%= link_to 'Sold', animal_change_status_sold_path(animal)%></button></td>
         <% else %>
-          <center><td><button><%= link_to 'For Sale', animal_change_status_sale_path(animal)%></button></td>
+          <td><button><%= link_to 'For Sale', animal_change_status_sale_path(animal)%></button></td>
         <%end%>
-       <center> <td><button><%= link_to 'Show', animal%></button></td></center>
-       <center> <td><button><%= link_to 'Edit', edit_animal_path(animal) %></button></td></center>
-        <center><td><button><%= link_to 'Delete', animal, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
-      </tr></center>
+        <td><button><%= link_to 'Show', animal%></button></td>
+        <td><button><%= link_to 'Edit', edit_animal_path(animal) %></button></td> 
+        <td><button><%= link_to 'Delete', animal, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
+      </tr>
     <% end %>
   </tbody>
 </table>
 <br>
-<button><%= link_to 'Add Animal', new_animal_path %></button> |
-<button><%= link_to 'Inventory', show_inventory_path%></button> |
-<button><%= link_to 'Log Out', login_path%></button> 
+<center><button><%= link_to 'Add Animal', new_animal_path %></button> |
+<button><%= link_to 'Inventory', show_inventory_path%></button> | 
+<button><%= link_to 'Log Out', login_path%></button></center>

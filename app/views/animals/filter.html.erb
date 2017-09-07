@@ -1,9 +1,10 @@
-<div>
-  <center><h1>Pet Shop Inventory</h1></center>
-</div>
+<h2 style="background-color:#808080;color:white">
+<center>Pet Shop Inventory System</center>
+</h2>
 <br><br>
 <table>
-  <thead><center>
+  <thead>
+  <table align="center">
     <tr>
       <th>Species</th>
       <th>Breed</th>
@@ -14,7 +15,7 @@
   </thead>
   <center><%= form_tag('/', method: 'get') do %>
   <%= text_field_tag 'query' %>
-  <%= submit_tag 'Filter' %>
+  <%= submit_tag 'Filter' %><br>
   <br><%= radio_button_tag 'field', 'species' %> Species
   <%= radio_button_tag 'field', 'breed' %> Breed
   <%= radio_button_tag 'field', 'price' %> Price
@@ -28,7 +29,7 @@
         <% if animal.Status == 'For Sale' %>
           <td><button><%= link_to 'Sold', animal_change_status_sold_path(animal)%></button></td>
         <% else %>
-          <td><button><%= link_to 'Sale', animal_change_status_sale_path(animal)%></button></td>
+          <td><button><%= link_to 'For Sale', animal_change_status_sale_path(animal)%></button></td>
         <%end%>
         <td><button><%= link_to 'Show', animal%></button></td>
         <td><button><%= link_to 'Edit', edit_animal_path(animal) %></button></td> 
@@ -38,6 +39,6 @@
   </tbody>
 </table>
 <br>
-<button><%= link_to 'Add Animal', new_animal_path %></button> |
+<center><button><%= link_to 'Add Animal', new_animal_path %></button> |
 <button><%= link_to 'Inventory', show_inventory_path%></button> | 
-<button><%= link_to 'Log Out', login_path%></button> 
+<button><%= link_to 'Log Out', login_path%></button></center>
