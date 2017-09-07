@@ -3,34 +3,24 @@ class AnimalsController < ApplicationController
   # GET /animals
   # GET /animals.json
   def index
-    #@animal = Animal.all
-    #try filter!!!
-    @animal = Animal.where(nil)
-    @animal = @animal.species(params[species]) if params[:species].present?
-    @animal = @animal.breed(params[breed]) if params[:breed].present?
-    @animal = @animal.status(params[status]) if params[:status].present?
+    @animal = Animal.all
   end
-
   # GET /animals/1
   # GET /animals/1.json
   def show
     @animal = Animal.find(params[:id])
   end
-
   # GET /animals/new
   def new
     @animal = Animal.new
   end
-
   # GET /animals/1/edit
   def edit
   end
-
   # POST /animals
   # POST /animals.json
   def create
     @animal = Animal.new(animal_params)
-
     respond_to do |format|
       if @animal.save
         format.html { redirect_to @animal}
@@ -41,7 +31,6 @@ class AnimalsController < ApplicationController
       end
     end
   end
-
   # PATCH/PUT /animals/1
   # PATCH/PUT /animals/1.json
   def update
@@ -73,39 +62,9 @@ class AnimalsController < ApplicationController
     @animals_for_sold = Animal.where(Status: 'Sold').group_by(&:Species)
   end
 
-  def show_species
-    @animals_dog = Animal.where(Species: 'Dog').group_by(&:Species)
-    @animals_cat = Animal.where(Species: 'Cat').group_by(&:Species)
-  end
-
-  def show_breed
-    @animals_by_dogbreed = Animal.where(Species: 'Dog').group_by(&:Breed)
-    @animals_by_catbreed = Animal.where(Species: 'Cat').group_by(&:Breed)
-  end
-
-  def show_status
-    @animals_for_sale = Animal.where(Status: 'For Sale').group_by(&:Species)
-    @animals_for_sold = Animal.where(Status: 'Sold').group_by(&:Species)
-  end
-
-  def species
-  end
-
-  #try filter
-  def search
-  @animals = Animal.search params[:search]
-  end
-
   def total_amount_sale
     @animal = Animal.sum(&:Price)
   end
-
-  def index
-  @animal = Animal.all
-  @animal = Animal.search(params[:animal])
-  #@animal = Animal.search(params[:animal])
-  end
-
   # DELETE /animals/1
   # DELETE /animals/1.json
   def destroy

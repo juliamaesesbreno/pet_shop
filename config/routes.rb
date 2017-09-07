@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :models
+  get 'sessions/new'
+
   get  '/signup',  to: 'users#new'
   post '/signup',  to: 'users#create'
   get    '/login',   to: 'sessions#new'
@@ -7,11 +8,11 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
   root 'animals#filter'
   resources :users
+  resources :sessions
     get 'show_inventory' => 'animals#show_inventory'
     get 'show_species' => 'animals#show_species'
     get 'show_breed' => 'animals#show_breed'
     get 'show_status' => 'animals#show_status'
-    root to: 'home#index'
   resources :animals do
     get 'change_status_sale' => 'animals#change_status_sale'
     get 'change_status_sold' => 'animals#change_status_sold'
