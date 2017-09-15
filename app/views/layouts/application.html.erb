@@ -9,7 +9,7 @@
 <body>
 
 <% if current_user %>
-  Welcome! You are now signed in <%= current_user.name %> | <%= link_to "Logout", '/logout' %>
+  Welcome! <%= current_user.name %> | <%= link_to "Logout", '/logout' %>
 <% else %>
   <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
 <% end %>
