@@ -2,10 +2,10 @@ Rails.application.routes.draw do
   get 'sessions/new'
 
   get  '/signup',  to: 'users#new'
-  post '/signup',  to: 'users#create'
+  post '/users',  to: 'users#create'
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
-  delete '/logout',  to: 'sessions#destroy'
+  get '/logout',  to: 'sessions#destroy'
   root 'animals#filter'
   resources :users
   resources :sessions
