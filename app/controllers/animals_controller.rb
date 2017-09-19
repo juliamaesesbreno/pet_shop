@@ -1,6 +1,5 @@
 class AnimalsController < ApplicationController
-  before_action :set_animal, only: [:show, :edit, :update, :destroy, :change_status_sale, :change_status_sold, :species, :total_amount_sale]
-  #before_action :check_if_logged_in 
+  before_action :check_if_logged_in, :set_animal, only: [:show, :edit, :update, :destroy, :change_status_sale, :change_status_sold, :species, :total_amount_sale]
   # GET /animals
   # GET /animals.json
   def index
@@ -87,9 +86,9 @@ class AnimalsController < ApplicationController
     end
   end
 
-  #def check_if_logged_in
-    #redirect_to login_path
-  #end
+  def check_if_logged_in
+    redirect_to login_path
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
